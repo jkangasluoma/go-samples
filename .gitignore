@@ -1,0 +1,8 @@
+/pkg/
+/bin/
+/.vscode/
+
+/*/github.com/
+/*/golang.org/
+
+/**/bin/

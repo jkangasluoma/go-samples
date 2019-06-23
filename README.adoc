@@ -1,0 +1,22 @@
+= Go samples - from zero to guru
+Jarkko <@jkangasluoma>
+v0.1, 2019-06-23
+:toc:
+:data-uri:
+
+// Note: Convert adoc to HTML with the asciidoctor utility, optionally with the flag -a data-uri to embed linked content.
+
+== What is it?
+
+This repo is a set of samples for teaching and hacking with Go. I've been learning Go for a
+while. To speed up my learning and to give other newcomers a chance to learn the basics in a
+new way I thought it a fun idea to cook up a very brief (1 hour) collaborative coding session.
+
+Content is inspired by Todd Mcleod's professional Go training courses and material at
+https://github.com/GoesToEleven. I encourage taking a look at Todd's mountain of work.
+
+== Get started
+
+Go is great. Let's hear it from the authorities: https://www.youtube.com/watch?v=IPOvrK3S3gQ&list=PLhr1KZpdzukcZIPswLEcVzw8HKF_yM0r3,
+https://www.youtube.com/watch?v=QdzV04T_kec&list=PLhr1KZpdzukcZIPswLEcVzw8HKF_yM0r3.
+
