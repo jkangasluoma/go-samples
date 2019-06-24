@@ -4,5 +4,9 @@
 
 /*/github.com/
 /*/golang.org/
+/src/*
+!/src/dive-in/
 
 /**/bin/
+/**/vendor/
+/**/packaged.yaml

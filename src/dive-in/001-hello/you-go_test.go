@@ -6,10 +6,10 @@ import (
 )
 
 func TestYouGo(t *testing.T) {
-	expected := "Go You!"
-	if got := YouGo(); got != expected {
-		t.Errorf("YouGo() returned %s instead of expected %s", got, expected)
+	const expected = "Go You!"
+	if got := youGo(); got != expected {
+		t.Errorf("youGo() returned %s instead of expected %s", got, expected)
 	} else {
-		fmt.Printf("YouGo() got %s and expected %s\n", got, expected)
+		fmt.Printf("youGo() got %s and expected %s\n", got, expected)
 	}
 }

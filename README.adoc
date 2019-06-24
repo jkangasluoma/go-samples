@@ -1,6 +1,6 @@
 = Go samples - from zero to guru
 Jarkko <@jkangasluoma>
-v0.1, 2019-06-23
+v0.2, 2019-06-28
 :toc:
 :data-uri:
 
@@ -8,15 +8,99 @@ v0.1, 2019-06-23
 
 == What is it?
 
-This repo is a set of samples for teaching and hacking with Go. I've been learning Go for a
-while. To speed up my learning and to give other newcomers a chance to learn the basics in a
-new way I thought it a fun idea to cook up a very brief (1 hour) collaborative coding session.
+I've been learning Go a bit. This repo contains sample code to share the joy of learning. Should you find it interesting I encourage also taking a look at the links to other sources I've collected. As these things go, Go is in rapid evolution, and better conventions and practices pop up.
 
-Content is inspired by Todd Mcleod's professional Go training courses and material at
-https://github.com/GoesToEleven. I encourage taking a look at Todd's mountain of work.
+Content is inspired by Todd Mcleod's professional Go training courses and material at https://github.com/GoesToEleven. It's truly tasty stuff.
 
-== Get started
+== Get started now
 
-Go is great. Let's hear it from the authorities: https://www.youtube.com/watch?v=IPOvrK3S3gQ&list=PLhr1KZpdzukcZIPswLEcVzw8HKF_yM0r3,
-https://www.youtube.com/watch?v=QdzV04T_kec&list=PLhr1KZpdzukcZIPswLEcVzw8HKF_yM0r3.
+Go is great. Let's hear it from the authorities: https://youtu.be/IPOvrK3S3gQ?list=PLhr1KZpdzukcZIPswLEcVzw8HKF_yM0r3&t=1230 (excerpt from AWS re:invent 20:30 through 22:30).
 
+Need to install:
+
+- brew install go
+
+Need an IDE:
+
+- https://code.visualstudio.com/docs/languages/go
+- https://www.jetbrains.com/go/ (GoLand 30-day trial)
+
+Need docs:
+
+- https://golang.org/ref/spec
+- https://golang.org/doc/effective_go.html
+
+Need to hack:
+
+- https://play.golang.org/ (Go and share!)
+- https://tour.golang.org/welcome/1 (Go and learn!)
+
+== Go setup more in-depth
+
+Instructions for Mac (see Windows notes in the bottom of the chapter). Download manually or use Brew:
+
+_brew install go dep_
+
+Make source code and dependencies available to the compiler by setting *GOPATH* to point to the project folder, e.g. by running:
+
+_source setgo.sh_
+
+99.9% of setup issues are due to conflicting env variables (in order of culpability):
+
+- GOPATH (your workspace, one folder any name, any location)
+- GOROOT (Go installation directory)
+- GOBIN (buildable install directory)
+
+_Setgo.sh_ sets GOPATH to the project directory for convenience. Go ahead and try out some of the useful _Go_ command line tool commands to familiarize yourself with its output (maybe also check out where artifacts are produced):
+
+- go env
+- go help gopath
+- go run src/dive-in/001-hello/you-go.go
+- go build -o bin/main src/dive-in/001-hello/you-go.go
+- go install src/dive-in/001-hello/you-go.go
+
+IDEs generally also require GOPATH to be set somewhere in their configs. 
+
+On Windows I find https://chocolatey.org/ nice:
+
+_choco install golang dep_
+
+Set Windows environment variables similarly to above via e.g. Control panel - Advanced. Or giddy up all with Bash on Windows and apt-get goodness.
+
+== Dive-in examples
+
+=== 001 Go world
+
+This program prints text. Points of note:
+
+_package main_
+
+_import_
+
+_func main_, optionally with arguments.
+
+_fmt_ package, see https://godoc.org/fmt, testing, visibility specifiers. Upper case for global visibility, lower case for package visible.
+
+Control structures: sequential, looping, conditional.
+
+=== 002
+
+This program shows higher order functions for a tasty little sampler, a few extra keywords and string slice manipulation.
+
+_strings_
+
+Slices, e.g. https://golang.org/ref/spec#Appending_and_copying_slices
+
+=== 003
+
+_net/http_
+
+=== 004
+
+AWS Lambda sample. Main, Lambda handler.
+
+== FAQ
+
+1. Is Go a functional programming language, ie. does it promote making data immutable and state, if any, transparent?
+
+Let me Google that for you: https://medium.com/@geisonfgfg/functional-go-bc116f4c96a4. Go offers _const_, array slicing, higher order functions, but it's not a firm proponent of functional style, instead enforcing stricter than normal scoping rules.

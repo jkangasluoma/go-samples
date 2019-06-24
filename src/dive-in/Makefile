@@ -1,14 +1,19 @@
 build:
 	dep ensure -v
 	go build -o bin/hello 001-hello/you-go.go
-	go build -o bin/web 002-web/web.go
-	go build -o bin/web 003-once-more-unto-the-breach-dear-friends/main.go
+	go build -o bin/web 002-functional/functional.go
+	go build -o bin/web 003-web/web.go
+	GOOS=linux GOARCH=amd64 go build -o 004-once-more-unto-the-breach-dear-friends/bin/main ./004-once-more-unto-the-breach-dear-friends/main/main.go
 
 run-001:
 	go run 001-hello/you-go.go
 
 run-002:
-	go run 002-web/web.go
+	go run 002-functional/functional.go
 
 run-003:
-	go run 003-once-more-unto-the-breach-dear-friends/main.go
+	go run 003-web/web.go
+
+build-004:
+	GOOS=linux GOARCH=amd64 go build -o 004-once-more-unto-the-breach-dear-friends/bin/main ./004-once-more-unto-the-breach-dear-friends/main
+
