@@ -2,21 +2,14 @@
 
 
 [[projects]]
-  digest = "1:019196f2ac870c197938d739cf0cdd4b78a39dc5c533021ed39899e390d34cd7"
   name = "github.com/aws/aws-lambda-go"
-  packages = [
-    "lambda",
-    "lambda/handlertrace",
-    "lambda/messages",
-    "lambdacontext",
-  ]
-  pruneopts = "UT"
+  packages = ["lambda","lambda/handlertrace","lambda/messages","lambdacontext"]
   revision = "4c210d7623089d36b6bb6febf5a5e553bf73fbfb"
   version = "v1.11.1"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  input-imports = ["github.com/aws/aws-lambda-go/lambda"]
+  inputs-digest = "b8dd0029a4fdeb7af0a8e1ea1aa7244250ec6eb9d9a98d2816e4dc05cb972b29"
   solver-name = "gps-cdcl"
   solver-version = 1
