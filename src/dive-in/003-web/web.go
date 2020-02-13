@@ -7,6 +7,8 @@ import (
 	"runtime"
 )
 
+var times = 0
+
 func handler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path[1:] == "" {
 		fmt.Fprintf(w, "Go!")
@@ -15,6 +17,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Go %s!", r.URL.Path[1:])
 	}
 	printMemUsage()
+	times++
+	fmt.Printf("%d", times)
 }
 
 // printMemUsage uses 	https://golang.org/pkg/runtime/#MemStats
