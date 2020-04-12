@@ -1,6 +1,6 @@
 = Go samples - from zero to guru
 Jarkko <@jkangasluoma>
-v0.2, 2019-06-28
+v0.2, 2020-04-12
 :toc:
 :data-uri:
 
