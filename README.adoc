@@ -12,6 +12,8 @@ I've been learning Go a bit. This repo contains sample code to share the joy of 
 
 Content is inspired by Todd Mcleod's professional Go training courses and material at https://github.com/GoesToEleven. It's truly tasty stuff.
 
+If you've taken a look at a previous version of this repository, there's now a <<brief-changelog,brief changelog>>.
+
 == Get started now
 
 Go is great. Let's hear it from the authorities: https://youtu.be/IPOvrK3S3gQ?list=PLhr1KZpdzukcZIPswLEcVzw8HKF_yM0r3&t=1230 (excerpt from AWS re:invent 20:30 through 22:30).
@@ -39,19 +41,11 @@ Need to hack:
 
 Instructions for Mac (see Windows notes in the bottom of the chapter). Download manually or use Brew:
 
-_brew install go dep_
+_brew install go_
 
-Make source code and dependencies available to the compiler by setting *GOPATH* to point to the project folder, e.g. by running:
+Source code and dependencies are made available globally relying on a few environment variables that should be set up fine automatically.
 
-_source setgo.sh_
-
-99.9% of setup issues are due to conflicting env variables (in order of culpability):
-
-- GOPATH (your workspace, one folder any name, any location)
-- GOROOT (Go installation directory)
-- GOBIN (buildable install directory)
-
-_Setgo.sh_ sets GOPATH to the project directory for convenience. Go ahead and try out some of the useful _Go_ command line tool commands to familiarize yourself with its output (maybe also check out where artifacts are produced):
+Having installed the tooling, go ahead and try out some of the useful _Go_ command line tool commands to familiarize yourself with its output (maybe also check out where artifacts are produced):
 
 - go env
 - go help gopath
@@ -59,15 +53,25 @@ _Setgo.sh_ sets GOPATH to the project directory for convenience. Go ahead and tr
 - go build -o bin/main src/dive-in/001-hello/you-go.go
 - go install src/dive-in/001-hello/you-go.go
 
-IDEs generally also require GOPATH to be set somewhere in their configs. 
+Note: Before Go modules were introduced I tended to change _GOPATH_ to the project's src folder, my experience being that 99.9% of setup issues are due to conflicting env variables (in order of culpability):
+
+- GOPATH (your workspace, one folder, any name, any location)
+- GOROOT (Go installation directory)
+- GOBIN (installation directory for buildables)
+
+With regards to IDEs, they may also require GOPATH to be set somewhere in their configs. It's a good idea to check command line tooling first.
 
 On Windows I find https://chocolatey.org/ nice:
 
-_choco install golang dep_
+_choco install golang_
 
 Set Windows environment variables similarly to above via e.g. Control panel - Advanced. Or giddy up all with Bash on Windows and apt-get goodness.
 
 == Dive-in examples
+
+In addition to the _go_ command examples mentioned previously, you can run the examples using _make_ (on OSX installed as part of Xcode):
+
+_cd src/dive-in/ && make run-001_
 
 === 001 Go world
 
@@ -83,6 +87,8 @@ _fmt_ package, see https://godoc.org/fmt, testing, visibility specifiers. Upper 
 
 Control structures: sequential, looping, conditional.
 
+Unit testing.
+
 === 002
 
 This program shows higher order functions for a tasty little sampler, a few extra keywords and string slice manipulation.
@@ -93,14 +99,18 @@ Slices, e.g. https://golang.org/ref/spec#Appending_and_copying_slices
 
 === 003
 
-_net/http_
+_net/http_ for the simplest web server possible.
 
 === 004
 
-AWS Lambda sample. Main, Lambda handler.
+https://docs.aws.amazon.com/lambda/latest/dg/lambda-golang.html[AWS Lambda] sample. Main, Lambda handler. Contains build and deploy script templates.
+
+== [[brief-changelog]]Brief changelog
+
+2020-04 Go's dependency management is now called https://blog.golang.org/using-go-modules[Go modules] and is in a very usable state from what I've experienced with VSCode toolchain getting there. Previously Go dependency management relied on a tool called _dep_, which continues to live on as a separate entity. These changes simplify setup greatly.
 
 == FAQ
 
 1. Is Go a functional programming language, ie. does it promote making data immutable and state, if any, transparent?
 
-Let me Google that for you: https://medium.com/@geisonfgfg/functional-go-bc116f4c96a4. Go offers _const_, array slicing, higher order functions, but it's not a firm proponent of functional style, instead enforcing stricter than normal scoping rules.
+Let me Google that for you: https://medium.com/@geisonfgfg/functional-go-bc116f4c96a4. Go offers _const_, array slicing, higher order functions, but it's not a firm proponent of functional style, but does instead enforce strict scoping.

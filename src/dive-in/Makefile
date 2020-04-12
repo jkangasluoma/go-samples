@@ -1,5 +1,4 @@
 build:
-	dep ensure -v
 	go build -o bin/hello 001-hello/you-go.go
 	go build -o bin/web 002-functional/functional.go
 	go build -o bin/web 003-web/web.go
